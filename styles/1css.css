@@ -1,0 +1,56 @@
+/*BARRA DE NAVEGACION*/
+.navbar{
+    padding: 2rem;
+    background-color: lightskyblue;
+}
+
+.navbar-collapse{
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Adatable responsivo */
+@media  screen and  (max-width: 991px) {
+    .navbar-brand{
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .imagen2{
+        max-width: 600px;
+    }
+}
+
+
+.hero {
+    background-color: floralwhite;
+    min-height: 450px;
+    text-align: center;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.imagenw{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: dashed black;
+    margin: 5px;
+}
+
+.hero-principal{
+    padding: 3rem;
+}

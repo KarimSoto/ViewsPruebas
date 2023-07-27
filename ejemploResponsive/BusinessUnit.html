@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Unit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../images/logoFurukawa.ico" style="width: 40px;"> Sistema Furukawa
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Business Units
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Componentes</a></li>
+                  <li><a class="dropdown-item" href="#">SRC</a></li>
+                  <li><a class="dropdown-item" href="#">Arnes</a></li>
+                  <li><a class="dropdown-item" href="#">Fusebox</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+                <i class="bi bi-person-circle"> Logout</i> 
+            </span>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="container-fluid mt-3" style="background-color: rgba(233, 233, 233, 1);">
+        <h5 class="text-center my-3">Posibles estados de una orden</h5>
+        <div class="d-flex flex-wrap justify-content-around">
+            <div class="col-4 text-center bi bi-calendar-event">Creada</div>
+            <div class="col-4 text-center bi bi-arrow-repeat">Pendiente</div>
+            <div class="col-4 text-center bi bi-trash3">Rechazada</div>
+            <div class="col-4 text-center bi bi-trash3">Asignada</div>
+            <div class="col-4 text-center ">Cancelada</div>
+            <div class="col-4 text-center ">Liberada</div>
+            <div class="col-4 text-center bi bi-check-circle">Completada</div>
+        </div>
+    </div>
+
+      <div class="container mt-5">
+        <h1>Business Units</h1>
+
+        <table id="example" class="display nowrap" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Business Unit</th>
+                 
+              </tr>
+          </thead>
+        <tbody>
+            <tr>
+                
+                <td><a href="">Componentes</a></td>
+            </tr>
+            <tr>
+                
+                <td><a href="">SRC</a></td>
+            </tr>
+            <tr>
+                
+                <td><a href="">Arnes</a></td>
+            <tr>
+                
+                <td><a href="">Fusebox</a></td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Numero</th>
+                
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<script>
+new DataTable('#example', {
+  responsive: true,
+  rowReorder: {
+    selector: 'td:nth-child(2)'
+  }
+});
+</script>
+</body>
+</html>
