@@ -53,22 +53,15 @@
         </div>
       </nav>
 
-
-      <div class="container-fluid mt-3" style="background-color: rgba(233, 233, 233, 1);">
-        <h5 class="text-center my-3">Posibles estados de una orden</h5>
-        <div class="d-flex flex-wrap justify-content-around">
-            <div class="col-4 text-center bi bi-calendar-event">Creada</div>
-            <div class="col-4 text-center bi bi-arrow-repeat">Pendiente</div>
-            <div class="col-4 text-center bi bi-trash3">Rechazada</div>
-            <div class="col-4 text-center bi bi-trash3">Asignada</div>
-            <div class="col-4 text-center ">Cancelada</div>
-            <div class="col-4 text-center ">Liberada</div>
-            <div class="col-4 text-center bi bi-check-circle">Completada</div>
-        </div>
-    </div>
-
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a class="bi bi-house" href="#"></a></li>
+          <li class="breadcrumb-item active" aria-current="page">Business Unit</li>
+        </ol>
+      </nav>
       <div class="container mt-5">
         <h1>Business Units</h1>
+
 
         <table id="example" class="display nowrap" style="width:100%">
           <thead>
@@ -88,7 +81,7 @@
             </tr>
             <tr>
                 
-                <td><a href="">Arnes</a></td>
+                <td><a href="http://127.0.0.1:5500/ejemploResponsive/Lineas.html">Arnes</a></td>
             <tr>
                 
                 <td><a href="">Fusebox</a></td>
@@ -103,33 +96,6 @@
         </tfoot>
     </table>
 </div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Entendido</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
 
 <script>
 new DataTable('#example', {

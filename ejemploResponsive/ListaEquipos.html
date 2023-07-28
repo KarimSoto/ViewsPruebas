@@ -67,16 +67,18 @@
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item"><a href="#">Business Unit</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Arnes</li>
+          <li class="breadcrumb-item"><a class="bi bi-house" href="#"></a></li>
+          <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/BusinessUnit.html">Business Unit</a></li>
+          <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/Lineas.html">Lineas Arnes</a></li>
+          <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/estaciones.html">Estaciones Linea 01 ATM</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Equipos estacion GM-176</li>
         </ol>
       </nav>
 
-
+      <h1>Estacion GM-176/05/ATM</h1>
 
       <div class="container mt-5">
-        <h1>Equipos de la estacion GM-176  01  ATM</h1>
+        <h3>Equipos de la estacion GM-176  01  ATM</h3>
 
         <table id="example" class="display nowrap" style="width:100%">
           <thead>
@@ -238,15 +240,10 @@
     </table>
 </div>
 
+
+<a href="http://127.0.0.1:5500/ejemploResponsive/Solicitudes.html" type="button" class="btn btn-dark">Ver ordenes correctivas GM-176</a>
+
 <script>
-
-    // JavaScript para redireccionar al hacer clic en "Business Units"
-  document.getElementById("businessUnitsLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita que se abra el dropdown al hacer clic
-    window.location.href = "https://www.youtube.com/watch?v=YFz1Rb0eAII&list=RDYFz1Rb0eAII&start_radio=1";
-  });
-
-
 
   new DataTable('#example', {
      responsive: true,
