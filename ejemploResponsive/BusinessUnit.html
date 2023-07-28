@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/logoFurukawa.ico" type="image/x-icon">
     <title>Business Unit</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/dt-1.13.5/r-2.5.0/datatables.min.css" rel="stylesheet">
@@ -13,45 +14,56 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <style>
+      .dropdown:hover .dropdown-menu {
+          display: block;
+      }
+
+      /* Agrega un estilo para ocultar el dropdown al hacer clic en el enlace */
+      .dropdown.show .dropdown-menu {
+          display: none;
+      }
+  </style>
+
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="../images/logoFurukawa.ico" style="width: 40px;"> Sistema Furukawa
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../images/logoFurukawa.ico" style="width: 40px;"> Sistema Furukawa
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Business Units
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Componentes</a></li>
-                  <li><a class="dropdown-item" href="#">SRC</a></li>
-                  <li><a class="dropdown-item" href="#">Arnes</a></li>
-                  <li><a class="dropdown-item" href="#">Fusebox</a></li>
-                </ul>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-              </li>
+          <li class="nav-item dropdown">
+            <a id="businessUnitsLink" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Business Units
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Componentes</a></li>
+              <li><a class="dropdown-item" href="#">SRC</a></li>
+              <li><a class="dropdown-item" href="http://127.0.0.1:5500/ejemploResponsive/Lineas.html">Arnes</a></li>
+              <li><a class="dropdown-item" href="#">Fusebox</a></li>
             </ul>
-            <span class="navbar-text">
-                <i class="bi bi-person-circle"> Logout</i> 
-            </span>
-          </div>
-        </div>
-      </nav>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">AnotherTap</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+            <i class="bi bi-person-circle"> Logout</i> 
+        </span>
+      </div>
+    </div>
+  </nav>
 
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -98,6 +110,13 @@
 </div>
 
 <script>
+// JavaScript para redireccionar al hacer clic en "Business Units"
+document.getElementById("businessUnitsLink").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita que se abra el dropdown al hacer clic
+    window.location.href = "http://127.0.0.1:5500/ejemploResponsive/BusinessUnit.html";
+  });
+
+
 new DataTable('#example', {
   responsive: true,
   rowReorder: {
