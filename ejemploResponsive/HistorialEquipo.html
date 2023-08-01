@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <style>
+
+      .container{
+          margin-bottom: 40px;
+      }
+
       .dropdown:hover .dropdown-menu {
           display: block;
       }
@@ -23,6 +28,137 @@
       .dropdown.show .dropdown-menu {
           display: none;
       }
+
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .table {
+            border-collapse: collapse;
+        }
+
+        .table tr th {
+            background-color: #303030;
+            color: white;
+            border: 1px solid #909090;
+            padding: 8px;
+            text-align: center;
+            
+        }
+
+        .table tr td {
+            border: 1px solid #909090;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table .HS {
+            background-color: #303030;
+            color: white;
+            border: 1px solid #909090;
+            padding: 8px;
+            text-align: center; 
+        }
+
+        .table .HS b {
+            background-color: transparent;
+            color: white;
+            text-align: center; 
+        }
+
+        .table tr .active-week {
+            background-color: #BBCFC4;
+        }
+
+
+        .table tr .active-week .bi {
+            background-color: transparent; 
+        }
+
+
+        @media screen and (max-width: 1400px) {
+            .table {
+                font-size: 0.8rem;
+            }
+        }
+        @media screen and (max-width: 1200px) {
+            .table {
+                font-size: 0.7rem;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .table {
+                font-size: 0.6rem;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            .table {
+                font-size: 0.55rem;
+            }
+        }
+
+        /* Agrega el siguiente CSS para fijar la primera columna */
+        .table-container {
+            overflow-x: scroll;
+            width: 100%;
+        }
+
+        .table-container table {
+            width: max-content;
+        }
+
+        .table-container .HS:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background-color: #303030; /* Cambia el color de fondo según tus preferencias */
+           
+        }
+
+        .showt{
+         position: relative;
+         left: 20%;
+         top: 0%;
+         margin: 30px;
+        }
+
+        /*creada*/
+        .bi-calendar-event, .table .bi-calendar-event {
+          color: #76448A;
+          background: transparent;
+        }
+
+        /*asignada*/
+        .bi-briefcase-fill, .table .bi-briefcase-fill {
+          background: transparent;
+          color: #E67E22;
+        }
+
+        /*terminado*/
+        .bi-check-circle-fill, .table .bi-check-circle-fill {
+          background: transparent;
+          color: #1F618D ;
+        }
+
+        /*cancelado*/
+        .bi-trash3-fill, .table .bi-trash3-fill {
+          background: transparent;
+          color: #717D7E ;
+        }
+        
+        /*rechazado*/
+        .bi-clipboard-x-fill, .table .bi-clipboard-x-fill {
+          background: transparent;
+          color: #E74C3C;
+        }
+
+        /*aprovado*/
+        .bi-clipboard-check-fill, .table .bi-clipboard-check-fill {
+          background: transparent;
+          color: #1E8449 ;
+        }
   </style>
   <style>
 
@@ -85,15 +221,14 @@
         <h3>Ordenes Preventivas Naruto</h3>
 
       <div class="container-fluid mt-3" style="background-color: rgba(233, 233, 233, 1);">
-        <h5 class="text-center my-3">Posibles estados de una orden preventiva</h5>
+        <h5 class="text-center my-3">Estados de una orden preventiva</h5>
         <div class="d-flex flex-wrap justify-content-around">
             <div class="col-4 text-center bi bi-calendar-event">Creada</div>
-            <div class="col-4 text-center bi bi-arrow-repeat">Pendiente</div>
-            <div class="col-4 text-center bi bi-trash3">Rechazada</div>
-            <div class="col-4 text-center bi bi-trash3">Asignada</div>
-            <div class="col-4 text-center ">Cancelada</div>
-            <div class="col-4 text-center ">Liberada</div>
-            <div class="col-4 text-center bi bi-check-circle">Completada</div>
+            <div class="col-4 text-center bi bi-briefcase-fill">Asignada</div>
+            <div class="col-4 text-center bi bi-check-circle-fill">Terminada</div>
+            <div class="col-4 text-center bi bi-trash3-fill">Cancelada</div>
+            <div class="col-4 text-center bi bi-clipboard-x-fill">Rechazada</div>
+            <div class="col-4 text-center bi bi-clipboard-check-fill">Aprovada</div>
         </div>
     </div>
 
@@ -191,21 +326,198 @@
                 <th>Turno</th>
             </tr>
         </tfoot>
-        </table>
+        </table>     
 </div>
+
 <script>
-// JavaScript para redireccionar al hacer clic en "Business Units"
-document.getElementById("businessUnitsLink").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita que se abra el dropdown al hacer clic
-    window.location.href = "http://127.0.0.1:5500/ejemploResponsive/BusinessUnit.html";
+  // JavaScript para redireccionar al hacer clic en "Business Units"
+  document.getElementById("businessUnitsLink").addEventListener("click", function(event) {
+      event.preventDefault(); // Evita que se abra el dropdown al hacer clic
+      window.location.href = "http://127.0.0.1:5500/ejemploResponsive/BusinessUnit.html";
+    });
+  
+  new DataTable('#example', {
+    responsive: true,
+    rowReorder: {
+      selector: 'td:nth-child(2)'
+    }
+  });
+  </script>
+
+
+<div class="super-container" id="ta">
+<h3>Cronograma de mantenimiento preventivo equipo Naruto</h3>
+<div class="table-container">
+  <table class="table" id="table">
+      <thead>
+          <tr id="fh">
+              
+          </tr>
+      </thead>
+    <tbody>
+    </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script class="week">
+
+  $(document).ready(function() {
+     // Obtener la fecha actual
+     var currentDate = new Date();
+     // Obtener el número de semana del año
+     var weekNumber = getWeekNumber(currentDate);
+     
+
+     // Agregar el icono en la celda correspondiente
+     var iconCell = '.table tr th:nth-child(' + (weekNumber + 1) + ')';
+     $(iconCell).html('W'+weekNumber+'<img src="../images/akari.jpg" alt="Icono" width="20" height="20">');
+
+     // Agregar la clase active-week a los tr correspondientes
+     var rowsBelowWeek = '.table tr td:nth-child(' + (weekNumber + 1) + ')';
+     $(rowsBelowWeek).addClass('active-week');
   });
 
-new DataTable('#example', {
-  responsive: true,
-  rowReorder: {
-    selector: 'td:nth-child(2)'
+  function getWeekNumber(date) {
+     var onejan = new Date(date.getFullYear(), 0, 1);
+     return Math.ceil(((date - onejan) / 86400000 + onejan.getDay() + 1) / 7);
   }
-});
+  
+  //Obtener el total de semanas del año
+  function getTotalWeeksInYear(year) {
+  const lastDayOfYear = new Date(year, 11, 31);
+  const weekNumber = getWeekNumber(lastDayOfYear);
+  return weekNumber;
+  }
+
+  const currentYear = new Date().getFullYear();
+  const totalWeeks = getTotalWeeksInYear(currentYear);
+
+
+
+  const tabla = document.getElementById("table");
+  //crear fila th
+      const fila = document.getElementById("fh");
+      const firstcelda = document.createElement("th");
+      firstcelda.textContent="Actividades/Semanas";
+      // Asignar una clase a firstcelda
+      firstcelda.setAttribute("class", "HS");
+      fila.appendChild(firstcelda)
+
+      // Ciclo for para crear 52 o 53 celdas <td>
+      for (let i = 0; i < totalWeeks; i++) {
+         // Crea el elemento <td>
+         const celda = document.createElement("th");
+
+         // Encabezado de la celda
+         celda.textContent = "W " + (i + 1);
+
+         // Agrega la celda a la fila
+         fila.appendChild(celda);
+      }
+
+  //crear todas las filas td
+  const actividades = 4
+  const act_frecuencia = "semanal"
+  const nombres = ["Actividad 1", "Actividad 2", "Actividad 3", "Actividad 4"];
+  for (let i=0; i< actividades; i++) {
+
+        const filas = document.createElement("tr");
+        const fcelda = document.createElement("td");
+        const contenido = nombres[i] + "<b>" + act_frecuencia + "</b>";
+        fcelda.innerHTML = contenido;
+        // Asignar una clase a firstcelda
+        fcelda.setAttribute("class", "HS");
+        filas.appendChild(fcelda)
+
+        // Ciclo for para crear 52 o 53 celdas <td>
+        for (let i = 0; i < totalWeeks; i++) {
+            // Crea el elemento <td>
+            const celda = document.createElement("td");
+
+            if(i % 5 === 0)
+            {
+            // Link de la celda
+            const link = document.createElement("a");
+            // Agregar el atributo "href" al elemento <a>
+            link.setAttribute("href", "#");
+            // Agregar la clase "bi bi-check-circle-fill" al elemento <a>
+            link.setAttribute("class", "bi-check-circle-fill");
+            // Agregar el elemento <a> a la celda
+            celda.appendChild(link);
+            }
+            
+            // Agrega la celda a la fila
+            filas.appendChild(celda);
+      }
+
+      //agregar la fila creada a la tabla
+      tabla.appendChild(filas);
+  }
+
+
+      //crear fila QC aprovacion
+      const filaqc = document.createElement("tr");
+      const FQC = document.createElement("td");
+      FQC.textContent="QC aprovacion";
+      // Asignar una clase a firstcelda
+      FQC.setAttribute("class", "HS");
+      filaqc.appendChild(FQC)
+
+      // Ciclo for para crear 52 o 53 celdas <td>
+      for (let i = 0; i < totalWeeks; i++) {
+         // Crea el elemento <td>
+         const celda = document.createElement("td");
+
+         if((i+1)%2==1)
+         {
+             // Link de la celda
+            const link = document.createElement("a");
+            // Agregar el atributo "href" al elemento <a>
+            link.setAttribute("href", "#");
+            // Agregar la clase "bi bi-clipboard-check-fill" al elemento <a>
+            link.setAttribute("class", "bi bi-clipboard-check-fill");
+            // Agregar el elemento <a> a la celda
+            celda.appendChild(link);
+         }
+
+         // Agrega la celda a la fila
+         filaqc.appendChild(celda);
+      }
+      tabla.appendChild(filaqc);
+
+
+      //crear fila Revision supervisor
+      const filarp = document.createElement("tr");
+      const FRP = document.createElement("td");
+      FRP.textContent="Revision Supervisor";
+      // Asignar una clase a firstcelda
+      FRP.setAttribute("class", "HS");
+      filarp.appendChild(FRP)
+
+      // Ciclo for para crear 52 o 53 celdas <td>
+      for (let i = 0; i < totalWeeks; i++) {
+         // Crea el elemento <td>
+         const celda = document.createElement("td");
+
+         if((i+1)%2==0)
+         {
+             // Link de la celda
+            const link = document.createElement("a");
+            // Agregar el atributo "href" al elemento <a>
+            link.setAttribute("href", "#");
+            // Agregar la clase "bi bi-clipboard-x-fill" al elemento <a>
+            link.setAttribute("class", "bi-calendar-event");
+            // Agregar el elemento <a> a la celda
+            celda.appendChild(link);
+         }
+
+         // Agrega la celda a la fila
+         filarp.appendChild(celda);
+      }
+      tabla.appendChild(filarp);
 </script>
+
+
 </body>
 </html>
