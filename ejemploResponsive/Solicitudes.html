@@ -23,6 +23,42 @@
       .dropdown.show .dropdown-menu {
           display: none;
       }
+
+      /*creada*/
+      .bi-calendar-event {
+          color: #76448A;
+          background: transparent;
+        }
+
+        /*asignada*/
+        .bi-briefcase-fill {
+          background: transparent;
+          color: #E67E22;
+        }
+
+        /*terminado*/
+        .bi-check-circle-fill {
+          background: transparent;
+          color: #1F618D ;
+        }
+
+        /*cancelado*/
+        .bi-trash3-fill {
+          background: transparent;
+          color: #717D7E ;
+        }
+        
+        /*rechazado*/
+        .bi-clipboard-x-fill{
+          background: transparent;
+          color: #E74C3C;
+        }
+
+        /*aprovado*/
+        .bi-clipboard-check-fill {
+          background: transparent;
+          color: #1E8449 ;
+        }
   </style>
 
 </head>
@@ -71,7 +107,8 @@
           <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/BusinessUnit.html">Business Unit</a></li>
           <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/Lineas.html">Lineas Arnes</a></li>
           <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/estaciones.html">Estaciones Linea 01 ATM</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Solicitudes GM-176</li>
+          <li class="breadcrumb-item"><a href="http://127.0.0.1:5500/ejemploResponsive/ListaEquipos.html">Equipos estacion GM-176</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Correctivas GM-176</li>
         </ol>
       </nav>
 
@@ -79,18 +116,17 @@
       <div class="container mt-5">
         <h3>Ordenes Correctivas del GM-176</h3>
 
-      <div class="container-fluid mt-3" style="background-color: rgba(233, 233, 233, 1);">
-        <h5 class="text-center my-3">Posibles estados de una orden correctiva</h5>
-        <div class="d-flex flex-wrap justify-content-around">
-            <div class="col-4 text-center bi bi-calendar-event">Creada</div>
-            <div class="col-4 text-center bi bi-arrow-repeat">Pendiente</div>
-            <div class="col-4 text-center bi bi-trash3">Rechazada</div>
-            <div class="col-4 text-center bi bi-trash3">Asignada</div>
-            <div class="col-4 text-center ">Cancelada</div>
-            <div class="col-4 text-center ">Liberada</div>
-            <div class="col-4 text-center bi bi-check-circle">Completada</div>
-        </div>
-    </div>
+        <div class="container-fluid mt-3" style="background-color: rgba(233, 233, 233, 1);">
+          <h5 class="text-center my-3">Estados de una orden correctiva</h5>
+          <div class="d-flex flex-wrap justify-content-around">
+              <div class="col-4 text-center bi bi-calendar-event">Creada</div>
+              <div class="col-4 text-center bi bi-briefcase-fill">Asignada</div>
+              <div class="col-4 text-center bi bi-check-circle-fill">Terminada</div>
+              <div class="col-4 text-center bi bi-trash3-fill">Cancelada</div>
+              <div class="col-4 text-center bi bi-clipboard-x-fill">Rechazada</div>
+              <div class="col-4 text-center bi bi-clipboard-check-fill">Aprovada</div>
+          </div>
+      </div>
 
      
 

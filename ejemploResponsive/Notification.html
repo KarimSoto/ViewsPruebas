@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .ventana {
+
+      background-color: darkslategrey;
+      color: white;
+      position: absolute;
+      left: 30px;
+      display: none;
+    }
+  </style>
+
 </head>
 <body>
-    <!-- Botón para mostrar la notificación -->
-<button type="button" class="btn btn-primary" id="enviarBtn">Enviar</button>
+   <div class="ventana" id="ventana">
+     <p>Mensaje</p>
+   </div>
 
-<!-- Modal para la notificación -->
-<div class="modal fade" id="enviandoModal" tabindex="-1" role="dialog" aria-labelledby="enviandoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <p>Enviando...</p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<script>
-$(document).ready(function() {
-    // Cuando se haga clic en el botón "Enviar"
-    $("#enviarBtn").on("click", function() {
-      // Mostrar el modal de "Enviando"
-      $("#enviandoModal").modal("show");
+  <section id="contenedor">
+     <a href="javascript:abrir()">Abrir Ventana</a>
+  </section>
 
-      // Simular un tiempo de espera (puedes reemplazar esto con una llamada AJAX real)
-      setTimeout(function() {
-        // Ocultar el modal de "Enviando" después de 3 segundos (ajústalo según tus necesidades)
-        $("#enviandoModal").modal("hide");
-      }, 3000); // 3000 milisegundos = 3 segundos
-    });
-  });
-</script>
-
+  <script>
+    function abrir() {
+      document.getElementById("ventana");
+    }
+  </script>
 
 </body>
 </html>
