@@ -7,29 +7,50 @@
 
   <style>
     .ventana {
-
-      background-color: darkslategrey;
+      background-color: rgb(50, 56, 56);
       color: white;
-      position: absolute;
-      left: 30px;
-      display: none;
+      position: fixed;
+      top: 1%;
+      right: 2%;
+      display:none;
+      padding: 5px 30px;
+      word-wrap: break-word;
+      max-width: 180px;
     }
+    
+
+
   </style>
 
 </head>
 <body>
    <div class="ventana" id="ventana">
-     <p>Mensaje</p>
+     <span>Enviando solcitud de mantenimiento correctivo</span>
    </div>
+
+   <div class="d" id="d">
+    <p>Mensaje</p>
+  </div>
 
 
   <section id="contenedor">
-     <a href="javascript:abrir()">Abrir Ventana</a>
+     <button id="bs" onclick="OC()"></button>
   </section>
 
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed velit aut vero iusto blanditiis amet perferendis reiciendis autem sequi magnam, nulla quia harum ullam ad voluptates dolorem facere, fuga nisi. Iste sit autem illum odit officia consequatur possimus placeat? Incidunt dolore quaerat veritatis impedit. Illo sapiente placeat, maiores aut consequatur tempora nisi sed laudantium deserunt rem? Sapiente aspernatur esse soluta quaerat totam. Asperiores optio soluta nulla qui commodi, mollitia adipisci sunt assumenda fugit nisi distinctio aliquid odit officia dolore. Repudiandae saepe consequuntur voluptatibus, commodi obcaecati natus. Accusantium odio dolor fuga at nulla? Recusandae excepturi velit nisi iste eum, animi culpa.</p>
+
   <script>
-    function abrir() {
-      document.getElementById("ventana");
+    function OC() {
+      var op=document.getElementById("ventana");
+
+      if(op.style.display=='none')  op.style.display='block';
+      
+      else op.style.display='none';
     }
   </script>
 

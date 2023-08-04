@@ -16,6 +16,16 @@
 
     <style>
 
+      .Miku {
+        display: none;
+        padding-left: 5px;
+      }
+
+
+      th:hover .Miku{
+        display: inline-block;
+      }
+
       .container{
           margin-bottom: 40px;
       }
@@ -347,13 +357,14 @@
 
 <div class="super-container">
 <h3 id="TC">Cronograma de mantenimiento preventivo equipo Naruto</h3>
+</div>
 <script>
   const TH3=document.getElementById("TC")
   var año = new Date();
   
   TH3.textContent = TH3.textContent + " " + año.getFullYear();
 </script>
-</script>
+
 <div class="table-container">
   <table class="table" id="table">
       <thead>
@@ -389,39 +400,188 @@
      var onejan = new Date(date.getFullYear(), 0, 1);
      return Math.ceil(((date - onejan) / 86400000 + onejan.getDay() + 1) / 7);
   }
+
+
+
+  //////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////
   
-  //Obtener el total de semanas del año
-  function getTotalWeeksInYear(year) {
-  const lastDayOfYear = new Date(year, 11, 31);
-  const weekNumber = getWeekNumber(lastDayOfYear);
-  return weekNumber;
-  }
 
-  const currentYear = new Date().getFullYear();
-  const totalWeeks = getTotalWeeksInYear(currentYear);
+const currentYear = new Date().getFullYear();
+let FirstMondayOfYear = -1;
+let i = 1;
+let diaS;
+let diaL;
+let dn;
+let wn;
+let bi;
+let k;
+let kf;
+const alldays = [];
+
+while (FirstMondayOfYear !== 1) {
+    diaS = new Date(currentYear, 0, i);
+    FirstMondayOfYear = diaS.getDay();
+    i++;
+}
+
+const e = i - 1;
+if (e === 1) k = 1;
+if (e === 2) k = 2;
+if (e === 3) k = 3;
+if (e === 4) k = 4;
+if (e === 5) k = -3;
+if (e === 6) k = -2;
+if (e === 7) k = -1;
+
+let m = 31;
+let LastMondayOfYear = -1;
+while (LastMondayOfYear !== 1) {
+    diaL = new Date(currentYear, 11, m);
+    LastMondayOfYear = diaL.getDay();
+    m--;
+}
+
+const f = m + 1;
+if (f === 25) kf = 31;
+if (f === 26) kf = 32;
+if (f === 27) kf = 33;
+if (f === 28) kf = 34;
+if (f === 29) kf = 28;
+if (f === 30) kf = 29;
+if (f === 31) kf = 30;
+
+if (new Date(currentYear, 11, 31).getDate() !== new Date(currentYear, 0, 365).getDate()) {
+    console.log("es  año bisiesto");
+    bi = 29;
+} else {
+    console.log("no es  año bisiesto");
+    bi = 28;
+}
+
+for (k; k <= 31; k++) {
+    dn = new Date(currentYear, 0, k);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= bi; q++) {
+    dn = new Date(currentYear, 1, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 31; q++) {
+    dn = new Date(currentYear, 2, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 30; q++) {
+    dn = new Date(currentYear, 3, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 31; q++) {
+    dn = new Date(currentYear, 4, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 30; q++) {
+    dn = new Date(currentYear, 5, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 31; q++) {
+    dn = new Date(currentYear, 6, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 31; q++) {
+    dn = new Date(currentYear, 7, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 30; q++) {
+    dn = new Date(currentYear, 8, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 31; q++) {
+    dn = new Date(currentYear, 9, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= 30; q++) {
+    dn = new Date(currentYear, 10, q);
+    alldays.push(dn);
+}
+
+for (let q = 1; q <= kf; q++) {
+    dn = new Date(currentYear, 11, q);
+    alldays.push(dn);
+}
+
+console.log(alldays[0]);
+console.log(alldays[alldays.length - 1]);
+console.log(alldays.length);
+
+const allweeks = [];
+const nm = {
+    0: 'enero',
+    1: 'febrero',
+    2: 'marzo',
+    3: 'abril',
+    4: 'mayo',
+    5: 'junio',
+    6: 'julio',
+    7: 'agosto',
+    8: 'septiembre',
+    9: 'octubre',
+    10: 'noviembre',
+    11: 'diciembre'
+};
+
+for (let y = 0; y < alldays.length; y++) {
+    if (y === 0 || (y % 7) === 0) {
+        const ini = alldays[y].getDate() + " de " + nm[alldays[y].getMonth()];
+        const fin = alldays[y + 6].getDate() + " de " + nm[alldays[y + 6].getMonth()];
+        const wn = { ini, fin };
+        allweeks.push(wn);
+    }
+}
+
+
+  
+  /////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////
+
+  
+ 
+const tabla = document.getElementById("table");
+const fila = document.getElementById("fh");
+const firstcelda = document.createElement("th");
+firstcelda.textContent = "Actividades/Semanas";
+firstcelda.setAttribute("class", "HS");
+fila.appendChild(firstcelda);
+
+for (let i = 0; i < allweeks.length; i++) {
+    const celda = document.createElement("th");
+    const c1 = document.createElement("span");
+    c1.textContent = "W" + (i + 1);
+    
+    const c2 = document.createElement("span");
+    c2.setAttribute("class", "Miku");
+
+    // Aquí debes acceder a las fechas de inicio y fin desde allweeks
+    const ini = allweeks[i].ini;
+    const fin = allweeks[i].fin;
+    c2.textContent = "del " + ini + " al " + fin;
+
+    celda.appendChild(c1);
+    celda.appendChild(c2);
+    fila.appendChild(celda);
+}
 
 
 
-  const tabla = document.getElementById("table");
-  //crear fila th
-      const fila = document.getElementById("fh");
-      const firstcelda = document.createElement("th");
-      firstcelda.textContent="Actividades/Semanas";
-      // Asignar una clase a firstcelda
-      firstcelda.setAttribute("class", "HS");
-      fila.appendChild(firstcelda)
-
-      // Ciclo for para crear 52 o 53 celdas <td>
-      for (let i = 0; i < totalWeeks; i++) {
-         // Crea el elemento <td>
-         const celda = document.createElement("th");
-
-         // Encabezado de la celda
-         celda.textContent = "W " + (i + 1);
-
-         // Agrega la celda a la fila
-         fila.appendChild(celda);
-      }
 
   //crear todas las filas td
   const actividades = 4
@@ -438,7 +598,7 @@
         filas.appendChild(fcelda)
 
         // Ciclo for para crear 52 o 53 celdas <td>
-        for (let i = 0; i < totalWeeks; i++) {
+        for (let i = 0; i < allweeks.length; i++) {
             // Crea el elemento <td>
             const celda = document.createElement("td");
 
@@ -472,7 +632,7 @@
       filaqc.appendChild(FQC)
 
       // Ciclo for para crear 52 o 53 celdas <td>
-      for (let i = 0; i < totalWeeks; i++) {
+      for (let i = 0; i < allweeks.length; i++) {
          // Crea el elemento <td>
          const celda = document.createElement("td");
 
@@ -503,7 +663,7 @@
       filarp.appendChild(FRP)
 
       // Ciclo for para crear 52 o 53 celdas <td>
-      for (let i = 0; i < totalWeeks; i++) {
+      for (let i = 0; i < allweeks.length; i++) {
          // Crea el elemento <td>
          const celda = document.createElement("td");
 
